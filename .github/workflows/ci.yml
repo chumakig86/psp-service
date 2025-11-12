@@ -35,6 +35,10 @@ jobs:
           key: gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
           restore-keys: gradle-
 
+      # Make Gradle wrapper executable
+      - name: Make Gradle wrapper executable
+        run: chmod +x ./gradlew
+
       # 4️⃣ Run lint checks
       - name: Run ktlint
         run: ./gradlew ktlintCheck
