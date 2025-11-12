@@ -76,6 +76,11 @@ curl --location 'http://localhost:8080/api/payments' \
 }'
 ```
 
+Or use swagger for testing:
+### Swagger
+http://localhost:8080/swagger-ui.html
+
+
 ### Example Response
 
 ```json
@@ -84,3 +89,5 @@ curl --location 'http://localhost:8080/api/payments' \
   "status": "Approved",
   "message": "Transaction approved by Acquirer A"
 }
+
+```
