@@ -1,5 +1,6 @@
 package org.example.pspservice.service
 
+import org.example.pspservice.exception.InvalidCardException
 import org.example.pspservice.model.PaymentRequest
 import org.example.pspservice.model.PaymentResponse
 import org.example.pspservice.model.Transaction
@@ -18,14 +19,14 @@ class PaymentServiceImpl(
 
         // 1️⃣ Validate card number (Luhn)
         if (!CardUtils.isValidLuhn(request.cardNumber)) {
-            return PaymentResponse("", "Failed", "Invalid card number (Luhn check failed)")
+            throw InvalidCardException("Invalid card number (Luhn check failed)")
         }
 
         // 2️⃣ Validate expiry date (must not be in the past)
         val current = YearMonth.now()
         val expiry = YearMonth.of(request.expiryYear, request.expiryMonth)
         if (expiry.isBefore(current)) {
-            return PaymentResponse("", "Failed", "Card is expired")
+            throw InvalidCardException("Card is expired")
         }
 
         // 3️⃣ Initialize transaction

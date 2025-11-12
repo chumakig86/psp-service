@@ -19,6 +19,6 @@ class PaymentController(
     @PostMapping
     fun processPayment(@Valid @RequestBody request: PaymentRequest): ResponseEntity<PaymentResponse> {
         val response = paymentService.processPayment(request)
-        return ResponseEntity.ok(response)
+        return  ResponseEntity.ok(response)
     }
 }
