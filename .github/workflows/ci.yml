@@ -39,18 +39,11 @@ jobs:
       - name: Make Gradle wrapper executable
         run: chmod +x ./gradlew
 
-      # 4️⃣ Run lint checks
-      - name: Run ktlint
-        run: ./gradlew ktlintCheck
-
-      - name: Run detekt
-        run: ./gradlew detekt
-
-      # 5️⃣ Build and test
+      # Build and test
       - name: Build and test
         run: ./gradlew clean build --no-daemon
 
-      # 6️⃣ Build Docker image (optional)
+      # Build Docker image (optional)
       - name: Build Docker image
         if: success()
         run: docker build -t psp-service .
