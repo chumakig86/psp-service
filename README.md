@@ -1,5 +1,8 @@
 # PSP Service
 
+[![Build Status](https://github.com/chumakig86/psp-service/actions/workflows/ci.yml/badge.svg)](https://github.com/chumakig86/psp-service/actions/workflows/ci.yml)
+
+
 A simple **Payment Service Provider (PSP)** backend that processes payment requests, validates card data using Luhn’s algorithm, and routes transactions to mock acquirers based on BIN rules.
 
 ---
