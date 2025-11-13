@@ -12,6 +12,8 @@ import org.mockito.kotlin.argumentCaptor
 import java.math.BigDecimal
 import java.time.YearMonth
 
+private const val CARD_NUMBER = "4532015112830366"
+
 class PaymentServiceImplTest {
 
     private lateinit var repository: TransactionRepository
@@ -37,7 +39,7 @@ class PaymentServiceImplTest {
     fun `processPayment should throw InvalidCardException for expired card`() {
         val now = YearMonth.now()
         val request = PaymentRequest(
-            cardNumber = "4532015112830366",
+            cardNumber = CARD_NUMBER,
             expiryMonth = now.monthValue,
             expiryYear = now.year - 1, // expired
             cvv = "123",
@@ -54,7 +56,7 @@ class PaymentServiceImplTest {
 
     @Test
     fun `processPayment should approve transaction for even last digit`() {
-        val request = validRequest(cardNumber = "4532015112830366") // ends with 6 = approved
+        val request = validRequest(cardNumber = CARD_NUMBER) // ends with 6 = approved
         val response = service.processPayment(request)
 
         val captor = argumentCaptor<Transaction>()
@@ -80,7 +82,7 @@ class PaymentServiceImplTest {
     }
 
     // Helper to create a valid request
-    private fun validRequest(cardNumber: String = "4532015112830366"): PaymentRequest {
+    private fun validRequest(cardNumber: String = CARD_NUMBER): PaymentRequest {
         val now = YearMonth.now()
         return PaymentRequest(
             cardNumber = cardNumber,

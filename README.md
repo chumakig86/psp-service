@@ -21,7 +21,7 @@ A simple **Payment Service Provider (PSP)** backend that processes payment reque
 
 ## 🛠️ Build and Run
 
-### Option 1  (Gradle)
+## Option 1  (Gradle)
 
 ### Prerequisites
 
@@ -43,7 +43,7 @@ Application will start at:
 http://localhost:8080
 ```
 
-### Option 2  (Docker)
+## Option 2  (Docker)
 
 ### Prerequisites
 
@@ -65,7 +65,7 @@ Application will start at:
 http://localhost:8080
 ```
 
-### Test API
+# Test API
 
 You can send a payment request using `curl` like this:
 
@@ -84,9 +84,9 @@ curl --location 'http://localhost:8080/api/payments' \
 ```
 
 Or use swagger for testing:
-### Swagger
+## Swagger
 
-http://localhost:8080/swagger-ui.html
+<http://localhost:8080/swagger-ui.html>
 
 
 ### Example Response
