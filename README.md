@@ -1,13 +1,14 @@
 # PSP Service
 
 [![Build Status](https://github.com/chumakig86/psp-service/actions/workflows/ci.yml/badge.svg)](https://github.com/chumakig86/psp-service/actions/workflows/ci.yml)
-
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/1fca03d74b0d45dd81ef4bf507e8892b)](https://app.codacy.com/gh/chumakig86/psp-service/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 
 A simple **Payment Service Provider (PSP)** backend that processes payment requests, validates card data using Luhn’s algorithm, and routes transactions to mock acquirers based on BIN rules.
 
 ---
 
 ## 🧩 Features
+
 - REST API for processing payments (`POST /api/payments`)
 - BIN-based routing logic:
     - Even BIN sum → Acquirer A
@@ -19,9 +20,11 @@ A simple **Payment Service Provider (PSP)** backend that processes payment reque
 ---
 
 ## 🛠️ Build and Run
+
 ### Option 1  (Gradle)
 
 ### Prerequisites
+
 - **Java 17+**
 - **Gradle** (wrapper included)
 
@@ -43,6 +46,7 @@ http://localhost:8080
 ### Option 2  (Docker)
 
 ### Prerequisites
+
 - **Docker installed**
 
 ```bash
@@ -81,6 +85,7 @@ curl --location 'http://localhost:8080/api/payments' \
 
 Or use swagger for testing:
 ### Swagger
+
 http://localhost:8080/swagger-ui.html
 
 
